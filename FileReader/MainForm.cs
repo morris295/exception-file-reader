@@ -38,6 +38,7 @@ namespace FileReader
             _throwSecurityException = false;
             _throwUnauthorizedException = false;
             InitializeComponent();
+            fileContentsRichTextBox.Enabled = false;
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,46 +49,14 @@ namespace FileReader
             {
                 try
                 {
-                    if (_throwArgException == true)
-                    {
-                        throw new ArgumentException();
-                    }
-                    if (_throwDirectoryException == true)
-                    {
-                        throw new DirectoryNotFoundException();
-                    }
-                    if (_throwFileNotfoundException == true)
-                    {
-                        throw new FileNotFoundException();
-                    }
-                    if (_throwIOException == true)
-                    {
-                        throw new IOException();
-                    }
-                    if (_throwNotSupportedException == true)
-                    {
-                        throw new NotSupportedException();
-                    }
-                    if (_throwPathException == true)
-                    {
-                        throw new PathTooLongException();
-                    }
-                    if (_throwSecurityException == true)
-                    {
-                        throw new SecurityException();
-                    }
-                    if (_throwUnauthorizedException == true)
-                    {
-                        throw new UnauthorizedAccessException();
-                    }
-
+                    forceException();
                     _fileContents = File.ReadAllText(_fileDialog.FileName);
                     fileContentsRichTextBox.Text = _fileContents;
+                    fileContentsRichTextBox.Enabled = true;
                     fileNameToolStripStatusLabel.Text = _fileDialog.SafeFileName;
                     _fileInfo = new FileInfo(_fileDialog.FileName);
                     long fileOpenedSize = _fileInfo.Length;
                     _fileSize = fileOpenedSize / 1024;
-                    MessageBox.Show(fileOpenedSize.ToString());
                     fileSizeToolStripStatusLabel.Text = _fileSize.ToString() + " Mb";
                 }
                 catch (ArgumentException ex)
@@ -134,13 +103,51 @@ namespace FileReader
         {
             fileContentsRichTextBox.Text = "";
             fileNameToolStripStatusLabel.Text = "";
+            fileSizeToolStripStatusLabel.Text = "";
+            fileContentsRichTextBox.Enabled = false;
         }
 
         private void displayException(Exception e)
         {
             String type = e.GetType().ToString();
-            MessageBox.Show("Exception: " + type + " thrown.");
+            MessageBox.Show("Exception of type " + type + " thrown.\nMessage: " + e.Message);
             Console.WriteLine(e.StackTrace.ToString());
+        }
+
+        private void forceException()
+        {
+            if (_throwArgException == true)
+            {
+                throw new ArgumentException();
+            }
+            if (_throwDirectoryException == true)
+            {
+                throw new DirectoryNotFoundException();
+            }
+            if (_throwFileNotfoundException == true)
+            {
+                throw new FileNotFoundException();
+            }
+            if (_throwIOException == true)
+            {
+                throw new IOException();
+            }
+            if (_throwNotSupportedException == true)
+            {
+                throw new NotSupportedException();
+            }
+            if (_throwPathException == true)
+            {
+                throw new PathTooLongException();
+            }
+            if (_throwSecurityException == true)
+            {
+                throw new SecurityException();
+            }
+            if (_throwUnauthorizedException == true)
+            {
+                throw new UnauthorizedAccessException();
+            }
         }
 
         private void noneToolStripMenuItem_Click(object sender, EventArgs e)
