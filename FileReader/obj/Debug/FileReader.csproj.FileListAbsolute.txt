@@ -1,0 +1,9 @@
+C:\Users\Jesse\Documents\Visual Studio 2012\Projects\FileReader\FileReader\bin\Debug\FileReader.exe.config
+C:\Users\Jesse\Documents\Visual Studio 2012\Projects\FileReader\FileReader\bin\Debug\FileReader.exe
+C:\Users\Jesse\Documents\Visual Studio 2012\Projects\FileReader\FileReader\bin\Debug\FileReader.pdb
+C:\Users\Jesse\Documents\Visual Studio 2012\Projects\FileReader\FileReader\obj\Debug\FileReader.csprojResolveAssemblyReference.cache
+C:\Users\Jesse\Documents\Visual Studio 2012\Projects\FileReader\FileReader\obj\Debug\FileReader.MainForm.resources
+C:\Users\Jesse\Documents\Visual Studio 2012\Projects\FileReader\FileReader\obj\Debug\FileReader.Properties.Resources.resources
+C:\Users\Jesse\Documents\Visual Studio 2012\Projects\FileReader\FileReader\obj\Debug\FileReader.csproj.GenerateResource.Cache
+C:\Users\Jesse\Documents\Visual Studio 2012\Projects\FileReader\FileReader\obj\Debug\FileReader.exe
+C:\Users\Jesse\Documents\Visual Studio 2012\Projects\FileReader\FileReader\obj\Debug\FileReader.pdb
